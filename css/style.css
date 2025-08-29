@@ -1711,3 +1711,210 @@ b {
     padding-top: 15px;
     padding-bottom: 15px;
 }
+
+
+/* =========================
+   RESPONSIVE DESIGN FIXES
+   ========================= */
+
+/* Small devices (phones, <768px) */
+@media (max-width: 767px) {
+    /* Navbar */
+    .navbar-light .navbar-nav .nav-link {
+        font-size: 16px;
+        padding: 8px 0;
+    }
+
+    /* Carousel */
+    .carousel-header .carousel-inner .carousel-item img {
+        height: 250px;
+    }
+
+    .carousel-header {
+        height: auto !important;
+    }
+
+    /* Columns -> Stack */
+    .row1, .row, .columns {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .column1,
+    .left,
+    .right {
+        width: 100% !important;
+        float: none;
+        height: auto;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        width: 100% !important;
+    }
+
+    .sidebar ul li {
+        width: 100% !important;
+    }
+
+    /* Cards / Sliders */
+    .cards-wrapper {
+        flex-direction: column;
+    }
+
+    .display-area {
+        width: 100%;
+    }
+
+    /* Typography */
+    h1 {
+        font-size: 24px;
+    }
+
+    h5 {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 22px;
+    }
+}
+
+/* Medium devices (tablets, <992px) */
+@media (max-width: 991px) {
+    .navbar-light .navbar-nav .nav-link {
+        margin-right: 10px;
+        font-size: 18px;
+    }
+
+    .carousel-header .carousel-inner .carousel-item img {
+        height: 400px;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .cards-wrapper {
+        flex-wrap: wrap;
+    }
+
+    .card {
+        flex: 1 1 100%;
+        margin: 10px 0;
+    }
+}
+
+
+
+/* =========================
+   FIX: Mobile Alignment Issues
+   ========================= */
+
+/* Center carousel images */
+@media (max-width: 767px) {
+  .carousel-header .carousel-inner .carousel-item img {
+    display: block;
+    margin: 0 auto;   /* center horizontally */
+  }
+}
+
+/* Center the statistic cards */
+@media (max-width: 767px) {
+  .cards-wrapper,
+  .stats,
+  .stats .col,
+  .stats .card {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100% !important;
+    margin: 0 auto;
+  }
+}
+
+/* Fix notification / red boxes stretching */
+@media (max-width: 767px) {
+  .notice-box,
+  .notification,
+  .department-box {
+    width: 90% !important;   /* keep margin on sides */
+    margin: 10px auto !important;
+    display: block;
+    text-align: center;
+  }
+
+  .notice-box img,
+  .notification img,
+  .department-box img {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+
+
+/* =====================================================
+   STRONG MOBILE FIXES (alignment, overflow, image crops)
+   ===================================================== */
+@media (max-width: 767px) {
+  /* Kill horizontal scroll just in case */
+  html, body { overflow-x: hidden; }
+
+  /* Make any grid/columns stack and center */
+  .row, .row1 { display: flex; flex-direction: column; }
+  .row > [class^="col-"], .row > [class*=" col-"],
+  .row1 > [class^="col-"], .row1 > [class*=" col-"] {
+    width: 100% !important; float: none !important;
+  }
+
+  /* Universal image safety inside columns/links/tiles */
+  .row img, .col img, .column1 img,
+  .style39 img, .style44 img, .style49 img, .style50 img,
+  .notice-box img, .notification img, .department-box img,
+  .more-info img, .more-information img, .information img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+
+  /* If those red tiles are anchors with fixed inline widths */
+  .row a img, .col a img, .style39 a img, .style44 a img {
+    width: 100% !important;
+  }
+
+  /* Center the containers of those tiles */
+  .style39, .style44, .notice-box, .notification, .department-box,
+  .more-info, .more-information, .information {
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Remove fixed heights from generic .card to prevent cropping */
+  .card { height: auto !important; }
+
+  /* Any slider/gallery images should not crop */
+  .cards img { height: auto !important; object-fit: contain; }
+
+  /* Carousel final centering & sizing */
+  .carousel-header .carousel-inner .carousel-item img {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+}
